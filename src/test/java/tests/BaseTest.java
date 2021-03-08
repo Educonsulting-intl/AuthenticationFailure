@@ -67,7 +67,7 @@ public class BaseTest {
 		
 		if(log.equals("KievVpn") || log.equals("LvivVpn")) {
 			
-			AssertJUnit.assertTrue(Integer.parseInt(mainPage.getHits()) < 5);
+			AssertJUnit.assertTrue(mainPage.getHits().isEmpty() || Integer.parseInt(mainPage.getHits()) < 5);
 		}else {
 			
 			AssertJUnit.assertEquals("" , mainPage.getHits());
