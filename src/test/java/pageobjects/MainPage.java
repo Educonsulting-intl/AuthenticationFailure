@@ -10,6 +10,8 @@ public class MainPage extends BasePage{
 	WebElement hits;
 	@FindBy(css="[role='search']")
 	WebElement pageLoadElement;
+	@FindBy(css=".euiCallOutHeader__title")
+	WebElement noResultElement;
 	
 	public MainPage(WebDriver driver) {
 		super(driver);
@@ -22,4 +24,13 @@ public class MainPage extends BasePage{
 		return getText(hits);
 
 	}
+	
+	public void noResults() {
+		waitForElementToBeVisible(noResultElement);
+	}
+	public void hitIsInvisible() {
+		waitForElementToBeInvisible(hits);
+		
+	}
+	
 }

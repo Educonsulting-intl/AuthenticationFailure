@@ -42,6 +42,8 @@ public class BaseTest {
 		    URI.create("http://192.168.18.22:4444/wd/hub").toURL(), 
 		    capabilities
 		);
+		//WebDriverManager.chromedriver().setup();
+		//driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		if(log.equals("IsraelVpn"))
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-5m,to:now))&_a=(columns:!(_source),filters:!(),index:'filebeat-*',interval:auto,query:(language:kuery,query:'observer.name%20:%22FORTI-600E-EDU-IL%22%20AND%20rule.description:%20%22SSL%20VPN%20login%20fail%22'),sort:!())");
@@ -63,14 +65,23 @@ public class BaseTest {
 	
 	@Test
 	public void getHits() {
+		int hits = 0;
+		String flag = "false";
 		MainPage mainPage = new MainPage(driver);
 		
 		if(log.equals("KievVpn") || log.equals("LvivVpn")) {
 			
-			AssertJUnit.assertTrue(mainPage.getHits().isEmpty() || Integer.parseInt(mainPage.getHits()) < 5);
+			try {
+				hits = Integer.parseInt(mainPage.getHits());
+			}catch (Exception e) {}
+			
+			if(hits > 5)
+				flag = "true";
+			AssertJUnit.assertEquals("false", flag);
+			
 		}else {
 			
-			AssertJUnit.assertEquals("" , mainPage.getHits());
+			mainPage.noResults();
 		}
 
 	}

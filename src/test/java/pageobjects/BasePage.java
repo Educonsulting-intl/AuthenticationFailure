@@ -21,6 +21,11 @@ public class BasePage {
 		wait.until(ExpectedConditions.visibilityOf(el));
 	}
 	
+	protected void waitForElementToBeInvisible(WebElement el) {
+		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
+		wait.until(ExpectedConditions.invisibilityOf(el));
+	}
+	
 	protected String getText(WebElement el) {
 		return el.getText();
 	}
