@@ -38,21 +38,21 @@ public class BaseTest {
 		capabilities.setCapability("enableVNC", true);
 		capabilities.setCapability("enableVideo", false);
 		if(log.equals("IsraelVpn"))
-			Thread.sleep(6000);
+			Thread.sleep(5000);
 		else if(log.equals("GTs"))
-			Thread.sleep(12000);
+			Thread.sleep(10000);
 		else if(log.equals("RedTS"))
-			Thread.sleep(18000);
+			Thread.sleep(15000);
 		else if(log.equals("GreyTS"))
-			Thread.sleep(24000);
+			Thread.sleep(20000);
 		else if(log.equals("ManagementTS"))
-			Thread.sleep(30000);
+			Thread.sleep(25000);
 		else if(log.equals("LvivVpn"))
-			Thread.sleep(36000);
+			Thread.sleep(30000);
 		else if(log.equals("KievVpn"))
-			Thread.sleep(42000);
+			Thread.sleep(35000);
 		else if(log.equals("EndPointBlock"))
-			Thread.sleep(48000);
+			Thread.sleep(40000);
 			
 		driver = new RemoteWebDriver(
 		    URI.create("http://192.168.18.22:4444/wd/hub").toURL(), 
