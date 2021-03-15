@@ -31,13 +31,29 @@ public class BaseTest {
 	@Parameters({"log"})
 	@BeforeSuite
 	public void setup(String log)
-			throws MalformedURLException {
+			throws Exception {
 		capabilities = new DesiredCapabilities();
 		capabilities.setBrowserName("chrome");
 		capabilities.setVersion("85.0");
 		capabilities.setCapability("enableVNC", true);
 		capabilities.setCapability("enableVideo", false);
-
+		if(log.equals("IsraelVpn"))
+			Thread.sleep(6000);
+		else if(log.equals("GTs"))
+			Thread.sleep(12000);
+		else if(log.equals("RedTS"))
+			Thread.sleep(18000);
+		else if(log.equals("GreyTS"))
+			Thread.sleep(24000);
+		else if(log.equals("ManagementTS"))
+			Thread.sleep(30000);
+		else if(log.equals("LvivVpn"))
+			Thread.sleep(36000);
+		else if(log.equals("KievVpn"))
+			Thread.sleep(42000);
+		else if(log.equals("EndPointBlock"))
+			Thread.sleep(48000);
+			
 		driver = new RemoteWebDriver(
 		    URI.create("http://192.168.18.22:4444/wd/hub").toURL(), 
 		    capabilities
