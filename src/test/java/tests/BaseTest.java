@@ -40,19 +40,19 @@ public class BaseTest {
 		if(log.equals("IsraelVpn"))
 			Thread.sleep(5000);
 		else if(log.equals("GTs"))
-			Thread.sleep(10000);
+			Thread.sleep(9000);
 		else if(log.equals("RedTS"))
-			Thread.sleep(15000);
+			Thread.sleep(14000);
 		else if(log.equals("GreyTS"))
-			Thread.sleep(20000);
+			Thread.sleep(18000);
 		else if(log.equals("ManagementTS"))
-			Thread.sleep(25000);
+			Thread.sleep(23000);
 		else if(log.equals("LvivVpn"))
-			Thread.sleep(30000);
+			Thread.sleep(27000);
 		else if(log.equals("KievVpn"))
-			Thread.sleep(35000);
+			Thread.sleep(32000);
 		else if(log.equals("EndPointBlock"))
-			Thread.sleep(40000);
+			Thread.sleep(36000);
 			
 		driver = new RemoteWebDriver(
 		    URI.create("http://192.168.18.22:4444/wd/hub").toURL(), 
