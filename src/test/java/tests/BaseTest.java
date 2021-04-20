@@ -48,6 +48,8 @@ public class BaseTest {
 		else if(log.equals("ManagementTS"))
 			Thread.sleep(23000);
 		else if(log.equals("LvivVpn"))
+			Thread.sleep(700);
+		else if(log.equals("FakeRedTS"))
 			Thread.sleep(27000);
 		else if(log.equals("KievVpn"))
 			Thread.sleep(32000);
@@ -77,6 +79,8 @@ public class BaseTest {
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-10m,to:now))&_a=(columns:!(_source),filters:!(),index:'filebeat-*',interval:auto,query:(language:kuery,query:'observer.name%20:%22FG100ETK18029390%22%20AND%20fortinet.firewall.status:%20%22failure%22%20AND%20fortinet.firewall.result:%20%22XAUTH%20authentication%20failed%22%20'),sort:!())");
 		else if(log.equals("EndPointBlock"))
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),query:(language:kuery,query:''),refreshInterval:(pause:!t,value:0),time:(from:now-5m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22Blocked%22'),sort:!())");
+		else if(log.equals("FakeRedTS"))
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),query:(language:kuery,query:''),refreshInterval:(pause:!t,value:0),time:(from:now-5m,to:now))&_a=(columns:!(_source),filters:!(),index:'5cdaac10-5425-11eb-935b-0bb49ce79efe',interval:auto,query:(language:kuery,query:'event.action%20:%20%22logged-in%22%20AND%20event.outcome%20:%20%22success%22%20AND%20winlog.event_data.LogonProcessName:%20%22User32%20%22%20AND%20host.name:%20%22Red-TS26%22%20'),sort:!())");
 		this.log = log;
 
 	}
