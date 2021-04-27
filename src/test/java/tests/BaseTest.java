@@ -101,6 +101,19 @@ public class BaseTest {
 				flag = "true";
 			AssertJUnit.assertEquals("false", flag);
 			
+		}else if(log.equals("EndPointBlock")) {
+			try {
+				hits = Integer.parseInt(mainPage.getHits());
+			}catch (Exception e) {}
+			
+			if(hits > 1) {
+				mainPage.clickOnDetailsExpand();
+				mainPage.getClientUser();
+				mainPage.getDeviceType();
+				AssertJUnit.assertEquals(0, 1);
+
+			}
+			
 		}else {
 
 			mainPage.noResults();

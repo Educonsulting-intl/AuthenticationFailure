@@ -29,4 +29,8 @@ public class BasePage {
 	protected String getText(WebElement el) {
 		return el.getText();
 	}
+	
+	protected void click(WebElement el) {
+		el.click();
+	}
 }
