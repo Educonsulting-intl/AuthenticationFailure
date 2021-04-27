@@ -106,7 +106,7 @@ public class BaseTest {
 				hits = Integer.parseInt(mainPage.getHits());
 			}catch (Exception e) {}
 			
-			if(hits > 1) {
+			if(hits > 0) {
 				mainPage.clickOnDetailsExpand();
 				mainPage.getClientUser();
 				mainPage.getDeviceType();
