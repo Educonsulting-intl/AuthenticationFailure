@@ -37,7 +37,11 @@ public class BaseTest {
 		capabilities.setVersion("85.0");
 		capabilities.setCapability("enableVNC", true);
 		capabilities.setCapability("enableVideo", false);
-		if(log.equals("IsraelVpn"))
+		if(log.equals("LvivVpn"))
+			Thread.sleep(700);
+		else if(log.equals("IsraelVpn"))
+			Thread.sleep(5000);
+		else if(log.equals("FileDelete"))
 			Thread.sleep(5000);
 		else if(log.equals("GTs"))
 			Thread.sleep(9000);
@@ -45,11 +49,13 @@ public class BaseTest {
 			Thread.sleep(14000);
 		else if(log.equals("GreyTS"))
 			Thread.sleep(18000);
+		else if(log.equals("FileCopy"))
+			Thread.sleep(18000);
 		else if(log.equals("ManagementTS"))
 			Thread.sleep(23000);
-		else if(log.equals("LvivVpn"))
-			Thread.sleep(700);
 		else if(log.equals("FakeRedTS"))
+			Thread.sleep(27000);
+		else if(log.equals("FileWrite"))
 			Thread.sleep(27000);
 		else if(log.equals("KievVpn"))
 			Thread.sleep(32000);
@@ -81,6 +87,12 @@ public class BaseTest {
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),query:(language:kuery,query:''),refreshInterval:(pause:!t,value:0),time:(from:now-5m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22Blocked%22'),sort:!())");
 		else if(log.equals("FakeRedTS"))
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),query:(language:kuery,query:''),refreshInterval:(pause:!t,value:0),time:(from:now-5m,to:now))&_a=(columns:!(_source),filters:!(),index:'5cdaac10-5425-11eb-935b-0bb49ce79efe',interval:auto,query:(language:kuery,query:'event.action%20:%20%22logged-in%22%20AND%20event.outcome%20:%20%22success%22%20AND%20winlog.event_data.LogonProcessName:%20%22User32%20%22%20AND%20host.name:%20%22Red-TS26%22%20'),sort:!())");
+		else if(log.equals("FileDelete"))
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Delete%22'),sort:!())");
+		else if(log.equals("FileCopy"))
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Copy%22'),sort:!())");
+		else if(log.equals("FileWrite"))
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Write%22'),sort:!())");
 		this.log = log;
 
 	}
@@ -101,7 +113,18 @@ public class BaseTest {
 				flag = "true";
 			AssertJUnit.assertEquals("false", flag);
 			
+		}else if(log.equals("FileDelete") || log.equals("FileCopy") || log.equals("FileWrite")) {
+			
+			try {
+				hits = Integer.parseInt(mainPage.getHits());
+			}catch (Exception e) {}
+			
+			if(hits > 1000)
+				flag = "true";
+			AssertJUnit.assertEquals("false", flag);
+			
 		}else if(log.equals("EndPointBlock")) {
+			
 			try {
 				hits = Integer.parseInt(mainPage.getHits());
 			}catch (Exception e) {}
