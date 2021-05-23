@@ -88,11 +88,11 @@ public class BaseTest {
 		else if(log.equals("FakeRedTS"))
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),query:(language:kuery,query:''),refreshInterval:(pause:!t,value:0),time:(from:now-5m,to:now))&_a=(columns:!(_source),filters:!(),index:'5cdaac10-5425-11eb-935b-0bb49ce79efe',interval:auto,query:(language:kuery,query:'event.action%20:%20%22logged-in%22%20AND%20event.outcome%20:%20%22success%22%20AND%20winlog.event_data.LogonProcessName:%20%22User32%20%22%20AND%20host.name:%20%22Red-TS26%22%20'),sort:!())");
 		else if(log.equals("FileDelete"))
-			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Delete%22'),sort:!())");
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1h,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Delete%22'),sort:!())");
 		else if(log.equals("FileCopy"))
-			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Copy%22'),sort:!())");
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1h,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Copy%22'),sort:!())");
 		else if(log.equals("FileWrite"))
-			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-15m,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Write%22'),sort:!())");
+			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-1h,to:now))&_a=(columns:!(_source),filters:!(),index:aac2d300-8263-11eb-982f-c9a5e769f212,interval:auto,query:(language:kuery,query:'Event%20Name%20:%20%22File%20Write%22'),sort:!())");
 		this.log = log;
 
 	}
