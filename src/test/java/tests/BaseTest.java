@@ -102,7 +102,6 @@ public class BaseTest {
 		int hits = 0;
 		String flag = "false";
 		MainPage mainPage = new MainPage(driver);
-		
 		if(log.equals("KievVpn") || log.equals("LvivVpn")) {
 			
 			try {
@@ -114,11 +113,10 @@ public class BaseTest {
 			AssertJUnit.assertEquals("false", flag);
 			
 		}else if(log.equals("FileDelete") || log.equals("FileCopy") || log.equals("FileWrite")) {
-			
+			String getHits = mainPage.getHits().replace(",", "");
 			try {
-				hits = Integer.parseInt(mainPage.getHits());
+				hits = Integer.parseInt(getHits);
 			}catch (Exception e) {}
-			
 			if(hits > 1000)
 				flag = "true";
 			AssertJUnit.assertEquals("false", flag);
