@@ -113,8 +113,8 @@ public class BaseTest {
 			AssertJUnit.assertEquals("false", flag);
 			
 		}else if(log.equals("FileDelete") || log.equals("FileCopy") || log.equals("FileWrite")) {
-			String getHits = mainPage.getHits().replace(",", "");
 			try {
+				String getHits = mainPage.getHits().replace(",", "");
 				hits = Integer.parseInt(getHits);
 			}catch (Exception e) {}
 			if(hits > 1000)
