@@ -117,6 +117,7 @@ public class BaseTest {
 				String getHits = mainPage.getHits().replace(",", "");
 				hits = Integer.parseInt(getHits);
 			}catch (Exception e) {}
+			System.out.println("HITS:"+hits);
 			if(hits > 1000)
 				flag = "true";
 			AssertJUnit.assertEquals("false", flag);
