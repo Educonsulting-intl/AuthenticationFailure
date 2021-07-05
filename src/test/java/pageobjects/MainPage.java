@@ -18,8 +18,10 @@ public class MainPage extends BasePage{
 	WebElement noResultElement;
 	@FindBy(css=".euiButtonIcon.euiButtonIcon--text")
 	WebElement detailsExpand;
-	@FindBy(css=".kbnDocViewer__value")
+	@FindBy(css=".euiButtonIcon.euiButtonIcon--text")
 	List <WebElement> expandListValue;
+	@FindBy(css=".kbnDocViewer__value")
+	List <WebElement> expandListValue1;
 	
 	public MainPage(WebDriver driver) {
 		super(driver);
@@ -52,6 +54,16 @@ public class MainPage extends BasePage{
 		System.out.println();
 		System.out.println("-----------------------------------------------");
 		System.out.println("Device Type: "+getText(expandListValue.get(20)));
+		System.out.println("-----------------------------------------------");
+	}
+	public void getRelatedUserRedGrey() {
+		System.out.println("-----------------------------------------------");
+		System.out.println("Client User: "+getText(expandListValue1.get(38)));
+		System.out.println("-----------------------------------------------");
+	}
+	public void getRelatedUserIsraelVPN() {
+		System.out.println("-----------------------------------------------");
+		System.out.println("Client User: "+getText(expandListValue1.get(40)));
 		System.out.println("-----------------------------------------------");
 	}
 	
