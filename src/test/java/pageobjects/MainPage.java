@@ -63,7 +63,7 @@ public class MainPage extends BasePage{
 	}
 	public void getRelatedUserIsraelVPN() {
 		System.out.println("-----------------------------------------------");
-		System.out.println("Client User: "+getText(expandListValue1.get(40)));
+		System.out.println("Client User: "+getText(expandListValue1.get(49)));
 		System.out.println("-----------------------------------------------");
 	}
 	
