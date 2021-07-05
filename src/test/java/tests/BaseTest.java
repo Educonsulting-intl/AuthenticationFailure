@@ -144,7 +144,7 @@ public class BaseTest {
 				mainPage.getRelatedUserIsraelVPN();
 				AssertJUnit.assertEquals(0, 1);
 			}
-		}else if(log.equals("RedTS") || log.equals("GreyTS")) {
+		}else if(log.equals("RedTS") || log.equals("GreyTS") || log.equals("ManagementTS")) {
 			try {
 				mainPage.noResults();
 			}catch (Exception e) {
