@@ -62,12 +62,12 @@ public class BaseTest {
 		else if(log.equals("EndPointBlock"))
 			Thread.sleep(36000);
 			
-		/*driver = new RemoteWebDriver(
+		driver = new RemoteWebDriver(
 		    URI.create("http://192.168.18.22:4444/wd/hub").toURL(), 
 		    capabilities
-		);*/
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		);
+		//WebDriverManager.chromedriver().setup();
+		//driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		if(log.equals("IsraelVpn"))
 			driver.get("http://192.168.20.162:5601/app/discover#/?_g=(filters:!(),refreshInterval:(pause:!t,value:0),time:(from:now-10m,to:now))&_a=(columns:!(_source),filters:!(),index:'filebeat-*',interval:auto,query:(language:kuery,query:'observer.name%20:%22FORTI-600E-EDU-IL%22%20AND%20rule.description:%20%22SSL%20VPN%20login%20fail%22'),sort:!())");
