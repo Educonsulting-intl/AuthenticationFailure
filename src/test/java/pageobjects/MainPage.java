@@ -43,7 +43,7 @@ public class MainPage extends BasePage{
 		
 	}
 	public void clickOnDetailsExpand() {
-		click(detailsExpand);
+		click(expandListValue.get(0));
 	}
 	public void getClientUser() {
 		System.out.println("-----------------------------------------------");
